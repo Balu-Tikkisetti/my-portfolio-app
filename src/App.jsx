@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import profilePic from './assets/profile.jpeg'
+import profilePic from './assets/profiledp.jpeg'
 
 function App() {
   const [scrollY, setScrollY] = useState(0);
