@@ -3,7 +3,8 @@ import profilePic from './assets/profiledp.jpeg'
 
 function App() {
   const [scrollY, setScrollY] = useState(0);
-  const [activeSection, setActiveSection] = useState('hero');
+  const [activeSection, setActiveSection] = useState('about');
+  const [showPoster, setShowPoster] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -12,19 +13,33 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const sections = ['intro', 'about', 'projects', 'contact'];
+    const sections = ['about', 'experience', 'skills', 'projects', 'contact'];
     const handleScroll = () => {
-      const current = sections.find(section => {
+      const scrollPos = window.scrollY + 200;
+      
+      let current = 'about';
+      
+      sections.forEach(section => {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom > 100;
+          const elementTop = window.scrollY + rect.top;
+          const elementBottom = elementTop + element.offsetHeight;
+          
+          if (scrollPos >= elementTop && scrollPos < elementBottom) {
+            current = section;
+          }
         }
-        return false;
       });
-      if (current) setActiveSection(current);
+      
+      if (window.scrollY < 100) {
+        current = 'about';
+      }
+      
+      setActiveSection(current);
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -36,41 +51,143 @@ function App() {
     });
   };
 
+  const skillCategories = [
+    {
+      category: "Programming Languages",
+      skills: ["Java (8–17)", "TypeScript", "JavaScript (ES6+)", "Python", "Shell Scripting"]
+    },
+    {
+      category: "Frontend",
+      skills: ["Angular", "React", "HTML5", "CSS3", "Responsive UI", "Webpack/Vite", "RxJS"]
+    },
+    {
+      category: "Backend & APIs",
+      skills: ["Spring Boot 3.x", "Spring WebFlux", "Spring Security", "Hibernate/JPA", "Node.js", "Express", "RESTful APIs", "SOAP (legacy)"]
+    },
+    {
+      category: "Architecture & Methodologies",
+      skills: [
+        "Microservices", "Event-Driven Architecture", "CQRS", "DDD (Domain-Driven Design)",
+        "12-Factor Apps", "Design Patterns (GoF)", "Agile/Scrum", "CI/CD", "TDD"
+      ]
+    },
+    {
+      category: "Messaging & Streaming",
+      skills: ["Apache Kafka", "Kafka Streams", "RabbitMQ"]
+    },
+    {
+      category: "Databases (Relational)",
+      skills: ["PostgreSQL", "MySQL", "Oracle", "SQL Server"]
+    },
+    {
+      category: "Databases (NoSQL & Caching)",
+      skills: ["MongoDB", "Amazon DynamoDB", "Redis", "Elasticsearch"]
+    },
+    {
+      category: "Cloud & Serverless",
+      skills: [
+        "AWS (EC2, S3, RDS)", "AWS Lambda", "API Gateway",
+        "Azure App Service", "Azure Functions"
+      ]
+    },
+    {
+      category: "DevOps & IaC",
+      skills: ["Docker", "Kubernetes", "Helm", "Terraform", "Jenkins", "GitLab CI/CD", "GitHub Actions"]
+    },
+    {
+      category: "Security & API Management",
+      skills: ["OAuth2/OIDC", "JWT", "mTLS/SSL", "Apigee", "Istio (service mesh)"]
+    },
+    {
+      category: "Observability",
+      skills: ["Prometheus", "Grafana", "ELK/Elastic Stack", "Splunk", "Datadog"]
+    },
+    {
+      category: "Testing & Quality",
+      skills: ["JUnit 5", "Mockito", "Selenium", "Cucumber", "Postman", "Contract Testing (Pact)"]
+    },
+    {
+      category: "Version Control & Collaboration",
+      skills: ["Git", "Bitbucket", "Code Reviews", "Branching Strategies (GitFlow)"]
+    }
+  ];
+  
+
   const projects = [
     {
-      title: "E-Commerce Platform",
-      tech: "Spring Boot • React • AWS • PostgreSQL",
-      description: "Full-stack e-commerce solution with microservices architecture, payment integration, and real-time inventory management.",
-      gradient: "from-purple-600 to-blue-600"
+      title: "College Media Platform",
+      tech: "Spring Boot • React • MySQL • MongoDB • Firebase",
+      description: "Developed a location-driven social media platform for college students, alumni, and staff with features like profiles, posts, feeds (global, country, community), and real-time interactions. Conducted research analysis comparing MySQL, Firebase, and MongoDB for large-scale media storage and retrieval performance (10,000+ images) to optimize upload/download efficiency and scalability.",
+      gradient: "from-purple-600 to-blue-600",
+      repos: [
+        { name: "Frontend", url: "https://github.com/Balu-Tikkisetti/graduate-project_frontend_web" },
+        { name: "Backend", url: "https://github.com/Balu-Tikkisetti/graduateproject_backend_framework" }
+      ],
+      hasPoster: true
     },
     {
-      title: "Real-Time Chat Application",
-      tech: "Spring WebSocket • React • Redis • Docker",
-      description: "Scalable chat application with real-time messaging, file sharing, and user presence indicators.",
-      gradient: "from-green-500 to-teal-600"
+      title: "T@pics",
+      tech: "Java • Spring Boot • React • AWS • MySQL • MongoDB",
+      description: "Scalable chat application with real-time messaging, file sharing, and user presence indicators. Built with microservices architecture for enhanced scalability and performance.",
+      gradient: "from-green-500 to-teal-600",
+      repos: [
+        { name: "Backend", url: "https://github.com/Balu-Tikkisetti/topics-springboot-services" },
+        { name: "Frontend", url: "https://github.com/Balu-Tikkisetti/topics_frontend_framework" }
+      ]
     },
     {
-      title: "Data Analytics Dashboard",
-      tech: "Spring Boot • React • D3.js • MongoDB",
-      description: "Interactive dashboard for data visualization with real-time charts, filters, and export capabilities.",
-      gradient: "from-orange-500 to-red-600"
+      title: "Volunteer Management System",
+      tech: "Python • Flask • Firebase • Bootstrap",
+      description: "Interactive dashboard for data visualization with real-time charts, filters, and export capabilities. Comprehensive volunteer coordination system with event management.",
+      gradient: "from-orange-500 to-red-600",
+      repos: [
+        { name: "Repository", url: "https://github.com/Balu-Tikkisetti/se1-project_vem" }
+      ]
     },
     {
-      title: "Task Management System",
-      tech: "Spring Security • React • MySQL • Docker",
-      description: "Collaborative project management tool with role-based access, notifications, and progress tracking.",
-      gradient: "from-indigo-600 to-purple-700"
+      title: "College Enrollment System",
+      tech: "PHP • Oracle • MySQL • Bootstrap",
+      description: "Collaborative project management tool with role-based access, notifications, and progress tracking. Streamlined enrollment process for academic institutions.",
+      gradient: "from-indigo-600 to-purple-700",
+      repos: []
     }
   ];
 
-  const skills = [
-    { name: "Java", level: 95 },
-    { name: "Spring Boot", level: 90 },
-    { name: "React", level: 88 },
-    { name: "AWS", level: 85 },
-    { name: "Docker", level: 80 },
-    { name: "PostgreSQL", level: 85 }
-  ];
+  const PosterModal = () => (
+    <div 
+      className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4"
+      onClick={() => setShowPoster(false)}
+    >
+      <div className="relative w-full h-full max-w-7xl max-h-[98vh] bg-slate-800 rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl">
+        <div className="absolute top-0 left-0 right-0 z-20 bg-gradient-to-b from-slate-800 to-transparent p-4 flex justify-between items-center">
+          <h3 className="text-white font-semibold text-lg">College Media Platform - Project Poster</h3>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setShowPoster(false);
+            }}
+            className="w-10 h-10 bg-slate-900/80 hover:bg-red-600/80 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110"
+          >
+            ✕
+          </button>
+        </div>
+        
+        <div className="w-full h-full pt-16">
+          <object
+            data="/college_media_poster.pdf"
+            type="application/pdf"
+            className="w-full h-full"
+          >
+            <embed
+              src="/college_media_poster.pdf"
+              type="application/pdf"
+              className="w-full h-full"
+            />
+          </object>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <div className="relative bg-slate-900 text-white overflow-x-hidden">
@@ -93,22 +210,31 @@ function App() {
           <div className="flex justify-between items-center h-16">
             <div className="flex-shrink-0">
               <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                BT
+                Balu Tikkisetti
               </span>
             </div>
             <div className="hidden md:block">
               <div className="flex space-x-8">
-                {['hero', 'about', 'projects', 'contact'].map((section) => (
+                {['about', 'experience', 'skills', 'projects', 'contact'].map((section) => (
                   <button
                     key={section}
                     onClick={() => scrollToSection(section)}
-                    className={`px-3 py-2 text-sm font-medium transition-all duration-300 ${
+                    className={`relative px-3 py-2 text-sm font-medium transition-all duration-500 overflow-hidden ${
                       activeSection === section
-                        ? 'text-cyan-400 border-b-2 border-cyan-400'
+                        ? 'text-cyan-400'
                         : 'text-slate-300 hover:text-white'
                     }`}
                   >
-                    {section.charAt(0).toUpperCase() + section.slice(1)}
+                    <span className="relative z-10">
+                      {section.charAt(0).toUpperCase() + section.slice(1)}
+                    </span>
+                    <div 
+                      className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-400 transition-all duration-500 ease-out ${
+                        activeSection === section
+                          ? 'w-full opacity-100'
+                          : 'w-0 opacity-0'
+                      }`}
+                    ></div>
                   </button>
                 ))}
               </div>
@@ -117,8 +243,8 @@ function App() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section id="hero" className="relative min-h-screen flex items-center justify-center px-4">
+      {/* About Section (Intro Content) */}
+      <section id="about" className="relative min-h-screen flex items-center justify-center px-4">
         <div className="text-center z-10">
           <div 
             className="relative mb-8"
@@ -147,7 +273,7 @@ function App() {
               Balu Tikkisetti
             </h1>
             <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-2xl mx-auto">
-              Java Full Stack Developer crafting scalable solutions with modern technologies
+              Experienced Java Full Stack Developer crafting scalable solutions with modern technologies
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
@@ -166,6 +292,8 @@ function App() {
                 View My Work
               </button>
             </div>
+
+ 
           </div>
         </div>
 
@@ -186,53 +314,70 @@ function App() {
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="relative py-20 px-4">
+      {/* Experience Section */}
+      <section id="experience" className="relative py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
-              About Me
+              Professional Experience
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <div className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-700/50 hover:border-purple-500/50 transition-all duration-300 hover:transform hover:scale-105">
-                <p className="text-lg text-slate-300 leading-relaxed mb-6">
-                  I am a passionate Java Full Stack Developer with expertise in building scalable, 
-                  high-performance applications. My journey in software development spans across 
-                  modern frameworks and cloud technologies, with a focus on creating solutions 
-                  that make a real impact.
-                </p>
-                <p className="text-lg text-slate-300 leading-relaxed">
-                  I specialize in Spring Boot ecosystem, React frontend development, and AWS cloud 
-                  services. I'm passionate about clean code, system design, and continuous learning 
-                  in the ever-evolving world of technology.
-                </p>
-              </div>
+          <div className="mb-12">
+            <div className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-700/50 hover:border-purple-500/50 transition-all duration-300 hover:transform hover:scale-105 max-w-4xl mx-auto text-center">
+              <h3 className="text-3xl font-bold mb-6 text-cyan-400">Experience Summary</h3>
+              <p className="text-lg text-slate-300 leading-relaxed mb-4">
+                As an experienced Java Full Stack Developer, I bring comprehensive expertise in designing, developing, 
+                and deploying enterprise-grade applications using cutting-edge technologies. My professional journey 
+                spans across the complete software development lifecycle, from requirements analysis to production deployment 
+                and maintenance.
+              </p>
+              <p className="text-lg text-slate-300 leading-relaxed mb-4">
+                I have successfully architected and implemented scalable microservices, developed responsive web applications, 
+                and optimized cloud infrastructure for high-performance systems. My experience includes working with diverse 
+                teams in Agile environments, mentoring junior developers, and delivering solutions that drive business value 
+                while maintaining code quality and best practices.
+              </p>
+              <p className="text-lg text-slate-300 leading-relaxed">
+                My technical leadership experience encompasses system architecture design, technology stack evaluation, 
+                performance optimization, and implementing DevOps practices that streamline development workflows and 
+                enhance deployment reliability across multiple environments.
+              </p>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="space-y-6">
-              <h3 className="text-2xl font-semibold mb-6 text-cyan-400">Technical Skills</h3>
-              {skills.map((skill, index) => (
-                <div key={skill.name} className="space-y-2">
-                  <div className="flex justify-between items-center">
-                    <span className="font-medium">{skill.name}</span>
-                    <span className="text-sm text-slate-400">{skill.level}%</span>
-                  </div>
-                  <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
+      {/* Skills Section */}
+      <section id="skills" className="relative py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+              Technical Skills
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto rounded-full"></div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {skillCategories.map((category, index) => (
+              <div 
+                key={category.category}
+                className="bg-slate-800/40 backdrop-blur-sm p-6 rounded-2xl border border-slate-700/50 hover:border-purple-500/50 transition-all duration-300 hover:transform hover:scale-105"
+              >
+                <h3 className="text-xl font-semibold mb-4 text-cyan-400">{category.category}</h3>
+                <div className="space-y-2">
+                  {category.skills.map((skill, skillIndex) => (
                     <div 
-                      className="h-full bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full transition-all duration-1000 ease-out"
-                      style={{ 
-                        width: `${skill.level}%`,
-                        animationDelay: `${index * 200}ms`
-                      }}
-                    ></div>
-                  </div>
+                      key={skill}
+                      className="bg-slate-700/30 px-3 py-2 rounded-lg border border-slate-600/30 hover:border-purple-400/50 transition-all duration-300 hover:bg-slate-600/30"
+                    >
+                      <span className="text-sm font-medium text-slate-200">{skill}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -269,13 +414,31 @@ function App() {
                     {project.description}
                   </p>
                   
-                  <div className="flex space-x-4">
-                    <button className="px-6 py-2 bg-gradient-to-r from-purple-600 to-cyan-600 rounded-lg hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105 text-sm font-semibold">
-                      View Project
-                    </button>
-                    <button className="px-6 py-2 border border-slate-600 rounded-lg hover:border-cyan-400 transition-all duration-300 text-sm">
-                      View Code
-                    </button>
+                  <div className="flex flex-wrap gap-3 mb-4">
+                    {project.hasPoster && (
+                      <button 
+                        onClick={() => setShowPoster(true)}
+                        className="px-4 py-2 bg-gradient-to-r from-orange-600 to-red-600 rounded-lg hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300 hover:scale-105 text-sm font-semibold"
+                      >
+                        View Poster
+                      </button>
+                    )}
+                    {project.repos.map((repo, repoIndex) => (
+                      <a 
+                        key={repoIndex}
+                        href={repo.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 bg-gradient-to-r from-purple-600 to-cyan-600 rounded-lg hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105 text-sm font-semibold"
+                      >
+                        {repo.name} Code
+                      </a>
+                    ))}
+                    {project.repos.length === 0 && (
+                      <span className="px-4 py-2 border border-slate-600 rounded-lg text-slate-400 text-sm">
+                        Private Repository
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>
@@ -329,6 +492,9 @@ function App() {
           </p>
         </div>
       </footer>
+
+      {/* Poster Modal */}
+      {showPoster && <PosterModal />}
 
       <style jsx>{`
         @keyframes spin-slow {
