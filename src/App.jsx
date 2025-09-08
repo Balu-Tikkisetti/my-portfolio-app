@@ -12,7 +12,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const sections = ['hero', 'about', 'projects', 'contact'];
+    const sections = ['intro', 'about', 'projects', 'contact'];
     const handleScroll = () => {
       const current = sections.find(section => {
         const element = document.getElementById(section);
