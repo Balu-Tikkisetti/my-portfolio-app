@@ -365,7 +365,7 @@ function App() {
               Balu Tikkisetti
             </h1>
             <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-2xl mx-auto">
-              Experienced Java Full Stack Developer crafting scalable solutions
+              Experienced Full Stack Developer crafting scalable solutions
               with modern technologies
             </p>
 
@@ -425,8 +425,7 @@ function App() {
                 Experience Summary
               </h3>
               <p className="text-lg text-slate-300 leading-relaxed mb-4">
-                As an experienced Java Full Stack Developer with 7+ years of
-                professional expertise, I bring comprehensive knowledge in
+                As an experienced Full Stack Developer, I bring comprehensive knowledge in
                 designing, developing, and deploying enterprise-grade
                 applications using modern technologies. My career spans the
                 complete software development lifecycle, from requirements
@@ -579,8 +578,8 @@ function App() {
             {[
               {
                 label: "Email",
-                value: "balutikkisetti@gmail.com",
-                link: "mailto:balutikkisetti@gmail.com",
+                value: "balu.tikkisetti.14.05.1998@gmail.com",
+                link: "mailto:balu.tikkisetti.14.05.1998@gmail.com",
                 icon: "📧",
               },
               {
@@ -592,7 +591,8 @@ function App() {
               {
                 label: "LinkedIn",
                 value: "balutikkisetti",
-                link: "https://www.linkedin.com/in/balutikkisetti/",
+                // link: "https://www.linkedin.com/in/balutikkisetti/",
+                link:"",
                 icon: "💼",
               },
               {
