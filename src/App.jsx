@@ -88,6 +88,45 @@ function App() {
       ],
     },
     {
+      category: "Machine Learning & Deep Learning",
+      skills: [
+        "Supervised & Unsupervised Learning",
+        "Deep Learning Architectures",
+        "Neural Networks (CNN, RNN, LSTM, Transformers)",
+        "Model Training & Evaluation",
+        "Feature Engineering",
+        "Hyperparameter Tuning",
+        "Model Optimization",
+        "Mixed Precision Training"
+      ],
+    },
+    {
+      category: "Generative AI & Large Language Models (LLMs)",
+      skills: [
+        "Large Language Models (LLMs)",
+        "Prompt Engineering",
+        "Instruction Tuning",
+        "LoRA / PEFT Fine-Tuning",
+        "Knowledge Distillation",
+        "Tokenization & Context Optimization",
+        "Inference Optimization",
+        "Latency & Cost Optimization"
+      ],
+    },
+    {
+      category: "AI Frameworks & Libraries",
+      skills: [
+        "PyTorch",
+        "TensorFlow",
+        "Keras",
+        "Hugging Face Transformers",
+        "Datasets & Accelerate",
+        "Sentence Transformers",
+        "ONNX Runtime"
+      ],
+    },
+    
+    {
       category: "Architecture & Methodologies",
       skills: [
         "Microservices",
@@ -114,6 +153,30 @@ function App() {
       skills: ["MongoDB", "Amazon DynamoDB", "Redis", "Elasticsearch"],
     },
     {
+      category: "Vector Databases & Semantic Search",
+      skills: [
+        "Vector Embeddings",
+        "Semantic Search",
+        "FAISS",
+        "Pinecone",
+        "Weaviate",
+        "ChromaDB",
+        "Elasticsearch (Vector Search)"
+      ],
+    },
+    {
+      category: "Retrieval-Augmented Generation (RAG)",
+      skills: [
+        "RAG Architecture Design",
+        "Document Chunking & Indexing",
+        "Embedding Pipelines",
+        "Hybrid Search (Keyword + Vector)",
+        "Context Ranking & Re-Ranking",
+        "Grounded Generation"
+      ],
+    },
+    
+    {
       category: "Cloud & Serverless",
       skills: [
         "AWS (EC2, S3, RDS)",
@@ -135,6 +198,30 @@ function App() {
         "GitHub Actions",
       ],
     },
+    {
+      category: "MLOps & AI Deployment",
+      skills: [
+        "Model Serving & Inference Pipelines",
+        "Dockerized Model Deployment",
+        "Kubernetes for ML Workloads",
+        "CI/CD for ML Pipelines",
+        "Model Versioning",
+        "Experiment Tracking",
+        "Monitoring & Drift Detection"
+      ],
+    },
+    {
+      category: "Cloud AI Platforms",
+      skills: [
+        "AWS SageMaker",
+        "AWS Bedrock",
+        "Azure Machine Learning",
+        "Google Vertex AI",
+        "GPU-based Inference",
+        "Scalable AI Services"
+      ],
+    },
+    
     {
       category: "Security & API Management",
       skills: [
