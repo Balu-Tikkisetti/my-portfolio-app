@@ -14,7 +14,8 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist -r git@github.com:Balu-Tikkisetti/my-portfolio-app.git",
-    "git":"git add . && git commit -m 'update' && git push"
+    "git":"git add . && git commit -m 'update' && git push",
+    "release":"npm run git && npm run build && npm run deploy"
      
 
   },

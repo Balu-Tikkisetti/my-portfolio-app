@@ -365,8 +365,8 @@ function App() {
               Balu Tikkisetti
             </h1>
             <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-2xl mx-auto">
-              Experienced Full Stack Developer crafting scalable solutions
-              with modern technologies
+              Experienced Full Stack Developer crafting scalable solutions with
+              modern technologies
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
@@ -426,32 +426,35 @@ function App() {
                 Experience Summary
               </h3>
               <p className="text-lg text-slate-300 leading-relaxed mb-4">
-                Experienced Software Engineer(GENAI/ML Focused), I bring comprehensive knowledge in
-                designing, developing, and deploying enterprise-grade
-                applications using modern technologies. My career spans the
-                complete software development lifecycle, from requirements
-                analysis to production deployment and maintenance.
+                Software Engineer with experience in building and deploying
+                GenAI and machinelearning driven applications alongside
+                large-scale enterprise backend systems. I specialize in
+                designing production-ready AI services that integrate large
+                language models into real-world applications, covering the full
+                lifecycle from experimentation and fine-tuning to scalable
+                inference and deployment.
               </p>
               <p className="text-lg text-slate-300 leading-relaxed mb-4">
-                I have architected and implemented scalable microservices with
-                Java (8–17), Spring Boot, and RESTful APIs, developed responsive
-                web applications using Angular, React, TypeScript, HTML5, and
-                CSS3, and optimized cloud infrastructure on AWS and Azure for
-                high-performance systems. My database experience includes
-                relational systems such as PostgreSQL, MySQL, and Oracle, as
-                well as NoSQL solutions like MongoDB, DynamoDB, Redis, and
-                Elasticsearch.
+                I have hands-on experience developing GenAI and ML pipelines
+                using Python, PyTorch, TensorFlow, and Hugging Face
+                Transformers, including instruction tuning, LoRA/PEFT-based
+                fine-tuning, knowledge distillation, and retrieval-augmented
+                generation (RAG) with embeddings and semantic search. My work
+                includes optimizing tokenization, batching strategies, and
+                mixed-precision training to improve GPU utilization, latency,
+                and cost efficiency in production environments.
               </p>
               <p className="text-lg text-slate-300 leading-relaxed">
-                I have collaborated in Agile/Scrum environments, mentored junior
-                developers, and delivered solutions that drive business value
-                while maintaining code quality and best practices. My technical
-                leadership covers system architecture design, technology stack
-                evaluation, performance optimization, CI/CD pipelines (Jenkins,
-                GitLab, GitHub Actions), containerization with Docker and
-                Kubernetes, and infrastructure as code with Terraform to ensure
-                streamlined workflows and reliable deployments across multiple
-                environments.
+                Alongside AI-focused development, I bring a strong enterprise
+                engineering foundation from my position as application
+                developer, where I built scalable microservices using Java,
+                Spring Boot, RESTful APIs, Kafka, and Redis. I have deployed
+                GenAI-enabled and traditional backend systems on AWS, Azure, and
+                GCP, leveraging Docker, Kubernetes, and CI/CD pipelines to
+                ensure reliable, secure, and maintainable deployments. I
+                collaborate effectively in Agile/Scrum teams and contribute to
+                system architecture, MLOps design, and technical documentation
+                to deliver high-impact, production-ready solutions.
               </p>
             </div>
           </div>
@@ -593,7 +596,7 @@ function App() {
                 label: "LinkedIn",
                 value: "balutikkisetti",
                 // link: "https://www.linkedin.com/in/balutikkisetti/",
-                link:"",
+                link: "",
                 icon: "💼",
               },
               {
