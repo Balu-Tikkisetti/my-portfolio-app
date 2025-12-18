@@ -426,7 +426,7 @@ function App() {
                 Experience Summary
               </h3>
               <p className="text-lg text-slate-300 leading-relaxed mb-4">
-                As an experienced Full Stack Developer, I bring comprehensive knowledge in
+                Experienced Software Engineer(GENAI/ML Focused), I bring comprehensive knowledge in
                 designing, developing, and deploying enterprise-grade
                 applications using modern technologies. My career spans the
                 complete software development lifecycle, from requirements
@@ -469,7 +469,7 @@ function App() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {skillCategories.map((category, index) => (
+            {skillCategories.map((category) => (
               <div
                 key={category.category}
                 className="bg-slate-800/40 backdrop-blur-sm p-6 rounded-2xl border border-slate-700/50 hover:border-purple-500/50 transition-all duration-300 hover:transform hover:scale-105"
@@ -478,7 +478,7 @@ function App() {
                   {category.category}
                 </h3>
                 <div className="space-y-2">
-                  {category.skills.map((skill, skillIndex) => (
+                  {category.skills.map((skill) => (
                     <div
                       key={skill}
                       className="bg-slate-700/30 px-3 py-2 rounded-lg border border-slate-600/30 hover:border-purple-400/50 transition-all duration-300 hover:bg-slate-600/30"

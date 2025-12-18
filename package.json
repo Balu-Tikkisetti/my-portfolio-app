@@ -5,7 +5,7 @@
  
 
   "private": true,
-  "version": "0.0.0",
+  "version": "1.25.5",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -13,7 +13,9 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-     "deploy": "gh-pages -d dist -r git@github.com:Balu-Tikkisetti/my-portfolio-app.git"
+    "deploy": "gh-pages -d dist -r git@github.com:Balu-Tikkisetti/my-portfolio-app.git",
+    "git":"git add . && git commit -m 'update' && git push"
+     
 
   },
   "dependencies": {
