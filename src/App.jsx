@@ -371,16 +371,12 @@ function App() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
               <a
-                // href="/resume.docx"
-                href=""
+                href="/resume.docx"
                 target="_blank"
                 className="group px-8 py-4 bg-gradient-to-r from-purple-600 to-cyan-600 rounded-full shadow-lg hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105 font-semibold"
               >
                 <span className="group-hover:mr-2 transition-all duration-300">
                   Download Resume
-                </span>
-                <span className="inline-block group-hover:translate-x-1 transition-transform duration-300">
-                  →
                 </span>
               </a>
               <button
