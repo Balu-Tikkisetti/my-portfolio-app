@@ -371,7 +371,8 @@ function App() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
               <a
-                href="/resume.docx"
+                // href="/resume.docx"
+                href=""
                 target="_blank"
                 className="group px-8 py-4 bg-gradient-to-r from-purple-600 to-cyan-600 rounded-full shadow-lg hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105 font-semibold"
               >
@@ -578,8 +579,8 @@ function App() {
             {[
               {
                 label: "Email",
-                value: "balu.tikkisetti.14.05.1998@gmail.com",
-                link: "mailto:balu.tikkisetti.14.05.1998@gmail.com",
+                value: "tikkisettibalu1@gmail.com",
+                link: "mailto:tikkisettibalu1@gmail.com",
                 icon: "📧",
               },
               {
